@@ -1,0 +1,226 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+  --header-height: 3rem;
+  /*========== Colors ==========*/
+
+  --hue-color: 206;
+  --black-color: hsl(var(--hue-color), 4%, 4%);
+  --black-color-alt: hsl(var(--hue-color), 4%, 8%);
+  --title-color: hsl(var(--hue-color), 4%, 95%);
+  --text-color: hsl(var(--hue-color), 4%, 75%);
+  --text-color-light: hsl(var(--hue-color), 4%, 65%);
+  --white-color: #FFF;
+  --body-color: hsl(var(--hue-color), 4%, 6%);
+  --container-color: hsl(var(--hue-color), 4%, 10%);
+  --text-gradient: linear-gradient(hsl(var(--hue-color), 4%, 24%), hsl(var(--hue-color), 4%, 8%));
+  --scroll-thumb-color: hsl(var(--hue-color), 4%, 16%);
+  --scroll-thumb-color-alt: hsl(var(--hue-color), 4%, 20%);
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 5rem;
+  --bigger-font-size: 3.5rem;
+  --big-font-size: 2.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+  --text-line-height: 2rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*========== Margenes Bottom ==========*/
+  --mb-0-5: .5rem;
+  --mb-0-75: .75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+
+  /*========== z index ==========*/
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+}
+
+@media screen and (min-width: 968px){
+  :root {
+    --biggest-font-size: 6rem;
+    --bigger-font-size: 4.5rem;
+    --big-font-size: 3rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.375rem;
+    --normal-font-size:.976rem;
+    --small-font-size:.857rem;
+    --smaller-font-size:.781rem;
+    --text-line-height: 2.5rem;
+  }
+}
+
+/*=============== BASE ===============*/
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  scroll-behavior: smooth; /* scroll-behavior özelliği, temelde düzgün kaydırma özelliğini açıp kapatan iki değeri kabul eder. auto (varsayılan): Bu değer, kayan kutu içindeki öğeler arasında ani geçişlere izin verir. smooth : Adından da anlaşılacağı gibi bu değer, kayan kutu içindeki öğeler arasındaki yumuşak, animasyonlu geçişi ifade eder.  */
+}
+
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  color: var(--title-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+
+.section {
+  padding: 4rem 0 2rem;
+}
+
+.section__title {
+  font-size: var(--biggest-font-size);
+  text-align: center;
+  margin-bottom: var(--mb-2-5);
+}
+
+.section__title-gradient {
+  background: var(--text-gradient);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text; /*  background-clip özelliği, arka planın (renk veya görüntü) bir öğe içinde ne kadar uzanacağını tanımlar. */
+  
+}
+
+/*=============== LAYOUT ===============*/
+
+.main {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 968px;
+  margin-left: var(--mb-1-5);
+  margin-right: var(--mb-1-5);
+}
+
+.grid {
+  display: grid; /* CSS Grid, CSS'de yepyeni bir düzen sistemidir! Bu bir çerçeve veya kitaplık değildir - hızlı bir şekilde esnek, iki boyutlu düzenler oluşturmamıza izin veren dile bir ektir.  */
+}
+
+/*=============== HEADER ===============*/
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background: transparent;
+}
+
+/*=============== NAV ===============*/
+
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_logo {
+  display: flex;
+  width: 1.5rem;
+}
+
+.nav_toggle {
+  font-size: 1.2rem;
+  color: var(--white-color);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .nav_menu {
+    position: fixed;
+    background-color: var(--body-color);
+    top: -100%;
+    left: 0;
+    width: 100%;
+    padding: 4rem 0 3rem;
+    transition: .4s;
+  }
+}
+
+.nav_list {
+  display: flex;
+}
+
+/* Change background header */
+
+/* Active link */
+
+/*=============== HOME ===============*/
+
+/*=============== BUTTONS ===============*/
+
+/*=============== SPONSOR ===============*/
+
+/*=============== SPECS ===============*/
+
+/*=============== CASE ===============*/
+
+/*=============== DISCOUNT ===============*/
+
+/*=============== PRODUCTS ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/* Show Scroll Up*/
+
+/*=============== SCROLL BAR ===============*/
+
+/*=============== MEDIA QUERIES ===============*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
+
